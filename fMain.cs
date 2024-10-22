@@ -75,16 +75,15 @@ using System.Windows.Forms;
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            {
-                Computer computer = new Computer();
+            IComputer computer = new Computer(); 
 
-                fComputer ft = new fComputer(computer);
-                if (ft.ShowDialog() == DialogResult.OK)
-                {
-                    bindSrcComputers.Add(computer);
-                }
+            fComputer ft = new fComputer(computer as Computer); 
+            if (ft.ShowDialog() == DialogResult.OK)
+            {
+                bindSrcComputers.Add(computer);
             }
         }
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
